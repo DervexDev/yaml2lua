@@ -1,0 +1,18 @@
+[package]
+name = "yaml2lua"
+version = "0.1.0"
+edition = "2021"
+authors = ["Dervex"]
+repository = "https://github.com/DervexHero/yaml2lua"
+description = "Convert YAML to Lua table"
+keywords = ["yaml", "yml", "lua", "parse", "table"]
+categories = ["parsing"]
+license = "Apache-2.0"
+
+[lib]
+name = "yaml2lua"
+path = "src/lib.rs"
+
+[dependencies]
+indexmap = { version = "2.2.6", features = ["serde"] }
+serde_yaml = "0.9.34"
