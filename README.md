@@ -18,7 +18,10 @@ let yaml = r#"
 string: yaml2lua
 int: 420
 bool: true
-nil: null
+
+array:
+  - abc
+  - 123
 "#;
 
 let lua = parse(yaml).unwrap();
@@ -27,6 +30,28 @@ let lua = parse(yaml).unwrap();
 //   ["string"] = "yaml2lua",
 //   ["int"] = 420,
 //   ["bool"] = true,
-//   ["nil"] = nil,
+//   ["array"] = {
+//      "abc",
+//      123,
+//   },
 // }
+```
+
+## Notes
+
+- Mappings only support `String`, `Number` and `Bool` keys **(other ones will be skipped!)**
+- `TaggedValue` transforms like this:
+
+```yaml
+# YAML
+test: !Tag { x: 5 }
+```
+
+```lua
+-- Lua
+["test"] = {
+   ["Tag"] = {
+      ["x"] = 5,
+   },
+},
 ```

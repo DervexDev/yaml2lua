@@ -10,7 +10,10 @@
 //! string: yaml2lua
 //! int: 420
 //! bool: true
-//! nil: null
+//!
+//! array:
+//!   - abc
+//!   - 123
 //! "#;
 //!
 //! let lua = parse(yaml).unwrap();
@@ -19,7 +22,10 @@
 //! //   ["string"] = "yaml2lua",
 //! //   ["int"] = 420,
 //! //   ["bool"] = true,
-//! //   ["nil"] = nil,
+//! //   ["array"] = {
+//! //      "abc",
+//! //      123,
+//! //   },
 //! // }
 //! ```
 //!
@@ -39,14 +45,20 @@ use serde_yaml::{from_str, Result, Value};
 /// string: abc
 /// int: 123
 /// bool: true
-/// nil: null
+///
+/// array:
+///   - xyz
+///   - 456
 /// "#;
 ///
 /// let lua = r#"{
 /// 	["string"] = "abc",
 /// 	["int"] = 123,
 /// 	["bool"] = true,
-/// 	["nil"] = nil,
+/// 	["array"] = {
+/// 		"xyz",
+/// 		456,
+/// 	},
 /// }"#;
 ///
 /// assert_eq!(parse(yaml).unwrap(), lua);
