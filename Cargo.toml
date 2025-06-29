@@ -1,6 +1,6 @@
 [package]
 name = "yaml2lua"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["Dervex"]
 repository = "https://github.com/DervexHero/yaml2lua"
@@ -14,5 +14,6 @@ name = "yaml2lua"
 path = "src/lib.rs"
 
 [dependencies]
-indexmap = { version = "2.2.6", features = ["serde"] }
+indexmap = { version = "2.10.0", features = ["serde"] }
+serde = { version = "1.0.219", features = ["derive"] }
 serde_yaml = "0.9.34"

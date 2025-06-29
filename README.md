@@ -39,19 +39,5 @@ let lua = parse(yaml).unwrap();
 
 ## Notes
 
-- Mappings only support `String`, `Number` and `Bool` keys **(other ones will be skipped!)**
-- `TaggedValue` transforms like this:
-
-```yaml
-# YAML
-test: !Tag { x: 5 }
-```
-
-```lua
--- Lua
-["test"] = {
-   ["Tag"] = {
-      ["x"] = 5,
-   },
-},
-```
+- Mappings only support `String`, `Number` and `Bool` keys
+- Tagged values are not supported yet
